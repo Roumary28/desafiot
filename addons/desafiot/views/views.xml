@@ -1,0 +1,119 @@
+<odoo>
+    <data>
+
+        <!-- Vista de lista para el modelo Alumno -->
+        <record model="ir.ui.view" id="view_desafiot_alumno_tree">
+            <field name="name">desafiot.alumno.tree</field>
+            <field name="model">desafiot.alumno</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre"/>
+                    <field name="apellido"/>
+                    <field name="fecha_nac"/>
+                    <field name="nro_legajo"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                    <field name="direccion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para el modelo Alumno -->
+        <record model="ir.ui.view" id="view_desafiot_alumno_form">
+            <field name="name">desafiot.alumno.form</field>
+            <field name="model">desafiot.alumno</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="apellido"/>
+                        <field name="fecha_nac"/>
+                        <field name="nro_legajo"/>
+                        <field name="email"/>
+                        <field name="telefono"/>
+                        <field name="direccion"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de lista para el modelo Programa -->
+        <record model="ir.ui.view" id="view_desafiot_programa_tree">
+            <field name="name">desafiot.programa.tree</field>
+            <field name="model">desafiot.programa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre"/>
+                    <field name="descripcion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para el modelo Programa -->
+        <record model="ir.ui.view" id="view_desafiot_programa_form">
+            <field name="name">desafiot.programa.form</field>
+            <field name="model">desafiot.programa</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="descripcion"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de lista para el modelo Inscripcion -->
+        <record model="ir.ui.view" id="view_desafiot_inscripcion_tree">
+            <field name="name">desafiot.inscripcion.tree</field>
+            <field name="model">desafiot.inscripcion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="alumno_id"/>
+                    <field name="programa_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para el modelo Inscripcion -->
+        <record model="ir.ui.view" id="view_desafiot_inscripcion_form">
+            <field name="name">desafiot.inscripcion.form</field>
+            <field name="model">desafiot.inscripcion</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="alumno_id"/>
+                        <field name="programa_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acciones para abrir vistas en los modelos -->
+        <record model="ir.actions.act_window" id="action_desafiot_alumno_window">
+            <field name="name">Alumnos</field>
+            <field name="res_model">desafiot.alumno</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_desafiot_programa_window">
+            <field name="name">Programas</field>
+            <field name="res_model">desafiot.programa</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_desafiot_inscripcion_window">
+            <field name="name">Inscripciones</field>
+            <field name="res_model">desafiot.inscripcion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menús -->
+        <menuitem name="Desafiot" id="menu_desafiot" sequence="10"/>
+        
+        <menuitem name="Alumnos" id="menu_alumnos" parent="menu_desafiot" action="action_desafiot_alumno_window"/>
+        <menuitem name="Programas" id="menu_programas" parent="menu_desafiot" action="action_desafiot_programa_window"/>
+        <menuitem name="Inscripciones" id="menu_inscripciones" parent="menu_desafiot" action="action_desafiot_inscripcion_window"/>
+        
+    </data>
+</odoo>

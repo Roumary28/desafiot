@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+
+        <!-- Plantilla para la vista de lista de Alumnos -->
+        <template id="view_desafiot_alumno_tree">
+            <t t-name="desafiot.alumno.tree">
+                <div>
+                    <h2>Listado de Alumnos</h2>
+                    <ul>
+                        <t t-foreach="records" t-as="record">
+                            <li>
+                                <a t-attf-href="#{ root }/desafiot.alumno/#{ record.id }">
+                                    <t t-esc="record.nombre"/>
+                                </a>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </t>
+        </template>
+
+        <!-- Plantilla para la vista de detalle de Alumnos -->
+        <template id="view_desafiot_alumno_form">
+            <t t-name="desafiot.alumno.form">
+                <div>
+                    <h2>Detalle del Alumno</h2>
+                    <dl>
+                        <t t-foreach="fields" t-as="field">
+                            <dt><t t-esc="field.label"/></dt>
+                            <dd><t t-esc="record[field.name]"/></dd>
+                        </t>
+                    </dl>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>
